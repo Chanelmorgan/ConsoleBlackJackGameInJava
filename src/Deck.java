@@ -105,5 +105,17 @@ public class Deck {
          return this.cards.size();
     }
 
+    public void moveAllToDeck(Deck moveTo){
+        int thisDeckSize = this.cards.size();
+        for(int i =0; i < thisDeckSize; i++) {
+            moveTo.addCard(this.getCard(i));
+        }
+
+        for(int i =0; i<thisDeckSize; i++){
+            this.removeCard(0);
+        }
+
+    }
+
 }
 
