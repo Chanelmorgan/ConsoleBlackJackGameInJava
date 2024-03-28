@@ -7,6 +7,7 @@ public class BlackJack {
         // Create our playing deck
         Deck playingDeck = new Deck();
         playingDeck.generateDeck();
+        playingDeck.shuffle();
         System.out.println(playingDeck);
     }
 }
