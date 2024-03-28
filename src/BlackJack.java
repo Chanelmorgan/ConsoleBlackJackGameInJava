@@ -41,10 +41,10 @@ public class BlackJack {
             while (true) {
                 System.out.println("Your hand: ");
                 System.out.println(playerDeck.toString());
-                System.out.println("Your deck is valued at: " + playerDeck.cardsValue());
+                System.out.println(" \n Your deck is valued at: " + playerDeck.cardsValue());
 
                 // Display dealer hand
-                System.out.println("Dealer Hnad: " + dealerDeck.getCard(0).toString() + " and [Hidden]");
+                System.out.println("Dealer Hand: " + dealerDeck.getCard(0).toString() + " and [Hidden]");
 
                 // Hit or Stand
                 System.out.println("Would you like to (1) Hit or \n (2) Stand?");
@@ -99,12 +99,16 @@ public class BlackJack {
                 System.out.println("You win the hand!");
                 playerMoney += playerBet;
                 endRound = true;
+            } else if(!endRound){
+                System.out.println("You lose the hand!");
+                playerMoney -= playerBet;
+                endRound = true;
             }
-
-
+            playerDeck.moveAllToDeck(playingDeck);
+            dealerDeck.moveAllToDeck(playerDeck);
+            System.out.println("End of Hand.");
         }
         System.out.println("GAME OVER! You are out of money. :(");
-
 
     }
 }
