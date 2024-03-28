@@ -41,10 +41,8 @@ public class Deck {
 
     public String toString() {
         String cardListOutput = "";
-        int i = 0;
         for (Card card : this.cards) {
-            cardListOutput += "\n" + i + "-" + card.toString();
-            i++;
+            cardListOutput += "\n" + card.toString();
         }
         return cardListOutput;
     }
@@ -60,6 +58,13 @@ public class Deck {
     public void addCard(Card card){
         this.cards.add(card);
     }
+
+    // Draws from the deck
+    public void draw(Deck comingFrom){
+        this.cards.add(comingFrom.getCard(0));
+        comingFrom.removeCard(0);
+    }
+
 
 
 
